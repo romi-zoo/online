@@ -1,0 +1,16 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+body { background: #101b12; font-family: Arial, Helvetica, sans-serif; }
+.entrance { position: relative; width: 100vw; height: 100dvh; min-height: 100vh; overflow: hidden; isolation: isolate; }
+.scene { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; animation: breathe 14s ease-in-out infinite alternate; transform-origin: center center; }
+.atmosphere { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: radial-gradient(circle at 50% 58%, rgba(255,225,130,.12), transparent 30%), linear-gradient(to bottom, rgba(0,0,0,.03), rgba(0,0,0,.22)); mix-blend-mode: screen; }
+.enter-hotspot { position: absolute; z-index: 5; left: 50%; bottom: 15%; width: min(34vw,360px); height: min(10vw,105px); min-width: 190px; min-height: 58px; transform: translateX(-50%); border-radius: 24px; cursor: pointer; }
+.enter-hotspot:focus-visible { outline: 4px solid rgba(255,235,160,.95); outline-offset: 4px; }
+.particles { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; }
+.particles span { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: rgba(255,231,139,.85); box-shadow: 0 0 12px rgba(255,226,117,.85); left: calc(var(--x) * 1%); top: 105%; animation: floatUp var(--duration) linear infinite; animation-delay: var(--delay); }
+.particles span:nth-child(1){--x:8;--duration:9s;--delay:-2s}.particles span:nth-child(2){--x:17;--duration:7s;--delay:-5s}.particles span:nth-child(3){--x:26;--duration:10s;--delay:-1s}.particles span:nth-child(4){--x:34;--duration:8s;--delay:-7s}.particles span:nth-child(5){--x:42;--duration:11s;--delay:-3s}.particles span:nth-child(6){--x:51;--duration:7.5s;--delay:-6s}.particles span:nth-child(7){--x:59;--duration:9.5s;--delay:-4s}.particles span:nth-child(8){--x:67;--duration:8.5s;--delay:-8s}.particles span:nth-child(9){--x:74;--duration:10s;--delay:-2s}.particles span:nth-child(10){--x:82;--duration:7s;--delay:-5s}.particles span:nth-child(11){--x:90;--duration:9s;--delay:-1s}.particles span:nth-child(12){--x:47;--duration:8s;--delay:-10s}
+@keyframes breathe { from { transform: scale(1.01); } to { transform: scale(1.055); } }
+@keyframes floatUp { 0%{transform:translate(0,10vh) scale(.5);opacity:0} 12%{opacity:.9} 50%{transform:translate(30px,-50vh) scale(1)} 100%{transform:translate(-25px,-115vh) scale(.2);opacity:0} }
+@media (max-width:700px){ .scene{object-position:center center}.enter-hotspot{bottom:13%;width:72vw;height:18vw;min-width:210px;min-height:62px} }
+@media (max-width:700px) and (orientation:portrait){ .scene{object-position:50% 52%} }
+@media (prefers-reduced-motion:reduce){ .scene,.particles span{animation:none} }
