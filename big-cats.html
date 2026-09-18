@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Virtual Zoo — Big Cats</title>
+<link rel="stylesheet" href="zoo.css">
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;background:#071b14}
@@ -11,16 +12,22 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-seri
 .big-cats-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:12px;overflow:auto}
 .big-cats-map{position:relative;width:min(1536px,100%);line-height:0}
 .big-cats-map img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.45)}
-.label{position:absolute;transform:translate(-50%,-50%);padding:.42em .75em;border:2px solid rgba(255,255,255,.3);border-radius:12px;background:linear-gradient(#87582b,#5d3519);color:#fff;white-space:nowrap;text-align:center;font-weight:800;font-size:clamp(11px,1.55vw,24px);line-height:1;letter-spacing:.01em;text-shadow:0 2px 3px rgba(0,0,0,.65);box-shadow:0 4px 10px rgba(0,0,0,.38)}
-.label:before{content:"🐾";margin-right:.3em;font-size:.8em}
-.title{position:absolute;left:4%;top:3%;padding:.42em .8em;border:2px solid rgba(255,255,255,.3);border-radius:14px;background:linear-gradient(#87582b,#5d3519);color:#fff;font-weight:900;font-size:clamp(18px,3vw,42px);line-height:1;text-shadow:0 2px 3px rgba(0,0,0,.65);box-shadow:0 4px 10px rgba(0,0,0,.38)}
-.back{position:absolute;left:2.5%;bottom:3%;display:inline-flex;align-items:center;gap:.45em;padding:.65em .95em;border:2px solid rgba(255,255,255,.3);border-radius:14px;background:linear-gradient(#87582b,#5d3519);color:#fff;text-decoration:none;font-weight:800;font-size:clamp(12px,1.6vw,24px);line-height:1;box-shadow:0 4px 10px rgba(0,0,0,.38);text-shadow:0 2px 3px rgba(0,0,0,.65)}
+
+/* Use the same .habitat styling as the main zoo map; these rules only position the labels. */
+.region-label{position:absolute;transform:translate(-50%,-50%);z-index:2;white-space:nowrap;line-height:1}
+.lions{left:30%;top:17%}
+.tigers{left:70%;top:18%}
+.jaguars{left:17%;top:37%}
+.panthers{left:78%;top:42%}
+.fishing{left:20%;top:68%}
+.cheetahs{left:67%;top:66%}
+
+.back{position:absolute;left:2.5%;bottom:3%;z-index:3;display:inline-flex;align-items:center;gap:.45em;padding:.65em .95em;border:2px solid rgba(255,255,255,.3);border-radius:14px;background:linear-gradient(#87582b,#5d3519);color:#fff;text-decoration:none;font-weight:800;font-size:clamp(12px,1.6vw,24px);line-height:1;box-shadow:0 4px 10px rgba(0,0,0,.38);text-shadow:0 2px 3px rgba(0,0,0,.65)}
 .back:hover{transform:translateY(-1px)}
-.lions{left:30%;top:17%}.tigers{left:70%;top:18%}.jaguars{left:17%;top:37%}.panthers{left:78%;top:42%}.fishing{left:20%;top:68%}.cheetahs{left:67%;top:66%}
 @media(max-width:600px){
   .big-cats-page{padding:5px;align-items:flex-start}
-  .big-cats-map{min-width:720px;transform-origin:top left}
-  .label{font-size:16px}.title{font-size:26px}.back{font-size:16px}
+  .big-cats-map{min-width:720px}
+  .back{font-size:16px}
 }
 </style>
 </head>
@@ -29,13 +36,12 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-seri
   <div class="big-cats-map">
     <img src="assets/big-cats.png" alt="Illustrated map of the Big Cats region" draggable="false">
 
-    <div class="title">🐾 BIG CATS</div>
-    <div class="label lions">Lions</div>
-    <div class="label tigers">Tigers</div>
-    <div class="label jaguars">Jaguars</div>
-    <div class="label panthers">Panthers</div>
-    <div class="label fishing">Fishing Cat</div>
-    <div class="label cheetahs">Cheetahs</div>
+    <div class="habitat region-label lions">🐾 Lions</div>
+    <div class="habitat region-label tigers">🐾 Tigers</div>
+    <div class="habitat region-label jaguars">🐾 Jaguars</div>
+    <div class="habitat region-label panthers">🐾 Panthers</div>
+    <div class="habitat region-label fishing">🐾 Fishing Cat</div>
+    <div class="habitat region-label cheetahs">🐾 Cheetahs</div>
 
     <a class="back" href="zoo.html" aria-label="Back to Zoo Map">← Back to Zoo Map</a>
   </div>
