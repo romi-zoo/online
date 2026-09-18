@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Virtual Zoo — Explore</title>
+<link rel="stylesheet" href="zoo.css">
+</head>
+<body>
+<main class="map-page">
+  <div class="map-scroll">
+    <div class="map">
+      <img src="assets/zoo-map.png" alt="Illustrated map of the Virtual Zoo" draggable="false">
+      <button class="habitat big" data-name="Big Cats">🐾 Big Cats</button>
+      <button class="habitat snow" data-name="Snow & Mountain">❄️ Snow &amp; Mountain</button>
+      <button class="habitat asian" data-name="Asian Forest">🌿 Asian Forest</button>
+      <button class="habitat penguin" data-name="Penguin Coast">🐧 Penguin Coast</button>
+      <button class="habitat savannah" data-name="Savannah">🦒 Savannah</button>
+      <button class="habitat reptile" data-name="Reptile House">🐍 Reptile House</button>
+      <button class="habitat aquarium" data-name="Aquarium">🐠 Aquarium</button>
+    </div>
+  </div>
+  <div class="hint">Drag to explore</div>
+  <section class="card" id="card" aria-hidden="true">
+    <button class="close" aria-label="Close">×</button>
+    <div id="cardIcon">🐾</div><h2 id="cardTitle"></h2><p id="cardText"></p>
+  </section>
+</main>
+<script src="zoo.js"></script>
+</body>
+</html>
