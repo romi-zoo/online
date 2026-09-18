@@ -7,13 +7,66 @@
 <link rel="stylesheet" href="zoo.css">
 <style>
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:#061b20}
-body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.aquarium-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:12px;overflow:auto}
-.aquarium-scroll{width:100%;max-width:1536px;overflow:auto;-webkit-overflow-scrolling:touch}
-.aquarium-map{position:relative;width:max(100%,1100px);line-height:0;margin:auto}
-.aquarium-map img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.45);user-select:none}
-.region-label{position:absolute;transform:translate(-50%,-50%);z-index:2;white-space:nowrap;line-height:1}
+
+html,body{
+  margin:0;
+  width:100%;
+  min-height:100%;
+  background:#061b20;
+}
+
+body{
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  overflow:hidden;
+}
+
+.aquarium-page{
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  background:#061b20;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.aquarium-scroll{
+  width:100%;
+  height:100%;
+  overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+  touch-action:pan-x pan-y;
+  padding:12px;
+}
+
+.aquarium-map{
+  position:relative;
+  width:min(1536px,100%);
+  min-width:1100px;
+  margin:0 auto;
+  line-height:0;
+}
+
+.aquarium-map img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:18px;
+  box-shadow:0 10px 40px rgba(0,0,0,.45);
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
+.region-label{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  z-index:2;
+  white-space:nowrap;
+  line-height:1;
+  pointer-events:none;
+}
+
 .sharks{left:22%;top:24%}
 .rays{left:40%;top:12%}
 .turtles{left:63%;top:21%}
@@ -24,9 +77,18 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-seri
 .seahorses{left:20%;top:69%}
 .dolphins{left:50%;top:35%}
 .penguins{left:63%;top:62%}
+
 @media(max-width:600px){
-  .aquarium-page{padding:5px;align-items:flex-start}
-  .aquarium-map{min-width:900px}
+  .aquarium-scroll{
+    padding:5px;
+    display:block;
+  }
+
+  .aquarium-map{
+    width:1100px;
+    min-width:1100px;
+    margin:0;
+  }
 }
 </style>
 </head>
@@ -35,6 +97,7 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-seri
   <div class="aquarium-scroll">
     <div class="aquarium-map">
       <img src="assets/aquarium.png" alt="Illustrated map of the Aquarium region" draggable="false">
+
       <div class="habitat region-label sharks">🦈 Sharks</div>
       <div class="habitat region-label rays">🐟 Rays</div>
       <div class="habitat region-label turtles">🐢 Sea Turtles</div>
