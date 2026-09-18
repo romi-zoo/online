@@ -1,0 +1,1 @@
+const entrance=document.getElementById("entrance");const button=document.getElementById("enterButton");let opening=false;button.addEventListener("click",()=>{if(opening)return;opening=true;entrance.classList.add("entering");button.disabled=true;setTimeout(()=>{window.location.href="zoo.html"},1050)});
