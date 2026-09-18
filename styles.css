@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #101b12;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.entrance {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  /* Keep the whole artwork visible instead of cropping it. */
+  object-fit: contain;
+  object-position: center center;
+
+  animation: breathe 14s ease-in-out infinite alternate;
+  transform-origin: center center;
+  background: #101b12;
+}
+
+.atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 50% 55%,
+      rgba(255, 225, 130, .12),
+      transparent 30%),
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, .02),
+      rgba(0, 0, 0, .18));
+
+  mix-blend-mode: screen;
+}
+
+.enter-button {
+  position: absolute;
+  z-index: 6;
+
+  left: 50%;
+  bottom: clamp(42px, 9vh, 95px);
+  transform: translateX(-50%);
+
+  width: min(390px, 72vw);
+  min-height: 64px;
+  padding: 15px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  border: 3px solid rgba(255, 225, 135, .95);
+  border-radius: 22px;
+
+  color: #fff8d5;
+  background: rgba(67, 38, 12, .86);
+
+  box-shadow:
+    0 0 22px rgba(255, 206, 90, .55),
+    0 10px 35px rgba(0, 0, 0, .4);
+
+  text-decoration: none;
+  font-size: clamp(18px, 3vw, 28px);
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, .7);
+
+  backdrop-filter: blur(4px);
+
+  animation: buttonPulse 2.5s ease-in-out infinite;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+.enter-button span {
+  font-size: 1.25em;
+}
+
+.enter-button:hover,
+.enter-button:focus-visible {
+  transform: translateX(-50%) scale(1.05);
+  background: rgba(91, 52, 16, .95);
+  box-shadow:
+    0 0 38px rgba(255, 220, 105, .85),
+    0 15px 45px rgba(0, 0, 0, .45);
+  outline: none;
+}
+
+.enter-button:active {
+  transform: translateX(-50%) scale(.98);
+}
+
+/* Floating magical lights */
+.particles {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particles span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+
+  background: rgba(255, 231, 139, .85);
+  box-shadow: 0 0 12px rgba(255, 226, 117, .85);
+
+  left: calc(var(--x) * 1%);
+  top: 105%;
+
+  animation: floatUp var(--duration) linear infinite;
+  animation-delay: var(--delay);
+}
+
+.particles span:nth-child(1) { --x: 8; --duration: 9s; --delay: -2s; }
+.particles span:nth-child(2) { --x: 17; --duration: 7s; --delay: -5s; }
+.particles span:nth-child(3) { --x: 26; --duration: 10s; --delay: -1s; }
+.particles span:nth-child(4) { --x: 34; --duration: 8s; --delay: -7s; }
+.particles span:nth-child(5) { --x: 42; --duration: 11s; --delay: -3s; }
+.particles span:nth-child(6) { --x: 51; --duration: 7.5s; --delay: -6s; }
+.particles span:nth-child(7) { --x: 59; --duration: 9.5s; --delay: -4s; }
+.particles span:nth-child(8) { --x: 67; --duration: 8.5s; --delay: -8s; }
+.particles span:nth-child(9) { --x: 74; --duration: 10s; --delay: -2s; }
+.particles span:nth-child(10) { --x: 82; --duration: 7s; --delay: -5s; }
+.particles span:nth-child(11) { --x: 90; --duration: 9s; --delay: -1s; }
+.particles span:nth-child(12) { --x: 47; --duration: 8s; --delay: -10s; }
+
+@keyframes breathe {
+  from { transform: scale(1.01); }
+  to { transform: scale(1.035); }
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 18px rgba(255, 206, 90, .45),
+      0 10px 35px rgba(0, 0, 0, .35);
+  }
+
+  50% {
+    box-shadow:
+      0 0 32px rgba(255, 220, 105, .8),
+      0 10px 35px rgba(0, 0, 0, .35);
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translate(0, 10vh) scale(.5);
+    opacity: 0;
+  }
+
+  12% { opacity: .9; }
+
+  50% {
+    transform: translate(30px, -50vh) scale(1);
+  }
+
+  100% {
+    transform: translate(-25px, -115vh) scale(.2);
+    opacity: 0;
+  }
+}
+
+/* Phones */
+@media (max-width: 700px) {
+  .scene {
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  .enter-button {
+    bottom: max(28px, env(safe-area-inset-bottom));
+    width: min(360px, 82vw);
+    min-height: 58px;
+    padding: 13px 18px;
+    font-size: clamp(16px, 5vw, 23px);
+  }
+}
+
+/* Very narrow/tall phones */
+@media (max-width: 430px) and (orientation: portrait) {
+  .enter-button {
+    width: 82vw;
+    bottom: max(22px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene,
+  .enter-button,
+  .particles span {
+    animation: none;
+  }
+}
