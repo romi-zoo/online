@@ -1,8 +1,9 @@
 # Romi Zoo Homepage
 
-Put these three images in `assets/`:
-- zoo-entrance-desktop.png
-- zoo-entrance-mobile.png
-- zoo-map.png
+The visible Enter the Zoo button is part of the artwork. An invisible HTML hit area makes it clickable, so there is no duplicate visible button or extra text.
 
-The homepage automatically selects the desktop or mobile entrance image. The single HTML Enter the Zoo button zooms toward the entrance and then opens `zoo.html`.
+Desktop image: assets/zoo-entrance-desktop.png
+Mobile image: assets/zoo-entrance-mobile.png
+Destination: zoo.html
+
+Keep your existing zoo-entrance-mobile.png in the assets folder.

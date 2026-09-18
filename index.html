@@ -1,23 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Romi Zoo</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<main class="entrance" id="entrance">
-  <div class="scene" aria-hidden="true"></div>
-  <div class="shade" aria-hidden="true"></div>
-  <section class="welcome" aria-label="Romi Zoo welcome">
-    <p class="welcome-title">Welcome to<br>Romi Zoo</p>
-    <p class="welcome-text">A wild adventure awaits</p>
-    <button class="enter-button" id="enterButton" type="button">
-      <span>🐾</span><span>Enter the Zoo</span><b>→</b>
-    </button>
-  </section>
-  <div class="transition" id="transition" aria-hidden="true"></div>
+<main class="entrance">
+  <picture class="entrance-art">
+    <source media="(max-width: 700px)" srcset="assets/zoo-entrance-mobile.png">
+    <img src="assets/zoo-entrance-desktop.png" alt="Romi Zoo entrance">
+  </picture>
+
+  <!-- The visible button is part of the artwork; this HTML hotspot makes it clickable. -->
+  <button class="enter-hotspot" id="enterZoo" type="button" aria-label="Enter the Zoo"></button>
+
+  <div class="transition" aria-hidden="true"></div>
 </main>
 <script src="script.js"></script>
 </body>

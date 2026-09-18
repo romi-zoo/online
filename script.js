@@ -1,1 +1,9 @@
-const entrance=document.getElementById("entrance");const button=document.getElementById("enterButton");let opening=false;button.addEventListener("click",()=>{if(opening)return;opening=true;entrance.classList.add("entering");button.disabled=true;setTimeout(()=>{window.location.href="zoo.html"},1050)});
+const enterZoo=document.getElementById("enterZoo");
+let entering=false;
+enterZoo.addEventListener("click",()=>{
+  if(entering)return;
+  entering=true;
+  document.querySelector(".entrance").classList.add("entering");
+  enterZoo.disabled=true;
+  setTimeout(()=>{window.location.href="zoo.html"},1350);
+});
