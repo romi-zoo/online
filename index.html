@@ -1,102 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Romi Zoo</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    html, body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    .entrance {
-      position: relative;
-      width: 100vw;
-      height: 100dvh;
-      min-height: 100vh;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-    }
-
-    .scene {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center center;
-      z-index: 1;
-    }
-
-    .glow {
-      z-index: 2;
-    }
-
-    .particles {
-      z-index: 4;
-      pointer-events: none;
-    }
-
-    .enter-button {
-      position: absolute !important;
-      z-index: 10 !important;
-      left: 50% !important;
-      bottom: max(28px, 8vh) !important;
-      transform: translateX(-50%) !important;
-      width: min(390px, 82vw) !important;
-      min-height: 58px !important;
-      padding: 13px 20px !important;
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      box-sizing: border-box;
-      visibility: visible !important;
-      opacity: 1 !important;
-      pointer-events: auto !important;
-    }
-
-    .enter-button:hover,
-    .enter-button:focus-visible {
-      transform: translateX(-50%) scale(1.05) !important;
-    }
-
-    .hint {
-      z-index: 5;
-    }
-
-    @media (max-width: 600px) {
-      .enter-button {
-        bottom: max(24px, 7vh) !important;
-        width: 82vw !important;
-        min-height: 58px !important;
-        font-size: clamp(16px, 5vw, 23px) !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Romi Zoo</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="entrance">
-    <div class="scene"></div>
-    <div class="glow"></div>
-
-    <div class="particles" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
-
-    <a class="enter-button" href="zoo.html" aria-label="Enter Romi Zoo">
-      <span>ENTER THE ZOO</span>
-      <b>🐾</b>
-    </a>
-
-    <div class="hint">A wild adventure awaits</div>
-  </main>
+<main class="entrance" id="entrance">
+  <div class="scene" aria-hidden="true"></div>
+  <div class="shade" aria-hidden="true"></div>
+  <section class="welcome" aria-label="Romi Zoo welcome">
+    <p class="welcome-title">Welcome to<br>Romi Zoo</p>
+    <p class="welcome-text">A wild adventure awaits</p>
+    <button class="enter-button" id="enterButton" type="button">
+      <span>🐾</span><span>Enter the Zoo</span><b>→</b>
+    </button>
+  </section>
+  <div class="transition" id="transition" aria-hidden="true"></div>
+</main>
+<script src="script.js"></script>
 </body>
 </html>
