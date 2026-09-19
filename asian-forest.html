@@ -5,33 +5,123 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Asian Forest</title>
   <style>
+    * { box-sizing: border-box; }
+
     html, body {
       margin: 0;
       padding: 0;
-      min-height: 100%;
       background: #102015;
     }
 
     body {
       overflow-x: hidden;
+      font-family: Arial, sans-serif;
     }
 
-    .map-container {
+    .map {
+      position: relative;
       width: 100%;
+      max-width: 1536px;
+      margin: 0 auto;
       line-height: 0;
     }
 
-    .map-container img {
+    .map > img {
       display: block;
       width: 100%;
       height: auto;
-      max-width: 100%;
+    }
+
+    .animal-link {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      display: block;
+      padding: clamp(5px, 0.7vw, 10px) clamp(8px, 1vw, 15px);
+      background: rgba(20, 70, 35, 0.92);
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.9);
+      border-radius: 999px;
+      font-size: clamp(10px, 1.15vw, 18px);
+      font-weight: 700;
+      line-height: 1.1;
+      text-align: center;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.35);
+      transition: transform .15s ease, background .15s ease;
+      z-index: 2;
+    }
+
+    .animal-link:hover,
+    .animal-link:focus {
+      background: rgba(42, 105, 55, 0.98);
+      transform: translate(-50%, -50%) scale(1.06);
+    }
+
+    .back-link {
+      position: fixed;
+      left: 14px;
+      bottom: 14px;
+      z-index: 10;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(20, 70, 35, 0.94);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      line-height: 1;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.35);
+    }
+
+    /* Positions match the animals in asian-forest.png */
+    .elephant { left: 25%; top: 29%; }
+    .snow-leopard { left: 49%; top: 16%; }
+    .red-panda { left: 65%; top: 17%; }
+    .orangutan { left: 82%; top: 25%; }
+    .gibbon { left: 92%; top: 42%; }
+    .black-bear { left: 68%; top: 39%; }
+    .takin { left: 80%; top: 59%; }
+    .otter { left: 16%; top: 69%; }
+    .tapir { left: 37%; top: 77%; }
+    .sun-bear { left: 57%; top: 79%; }
+    .clouded-leopard { left: 74%; top: 78%; }
+    .birds { left: 50%; top: 47%; }
+
+    @media (max-width: 600px) {
+      .animal-link {
+        padding: 4px 6px;
+        border-width: 1px;
+        font-size: 9px;
+      }
+
+      .back-link {
+        left: 8px;
+        bottom: 8px;
+        padding: 8px 12px;
+        font-size: 12px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <main class="map-container">
+  <main class="map">
     <img src="assets/asian-forest.png" alt="Asian Forest zoo map">
+
+    <a class="animal-link elephant" href="asian-elephant.html">Asian Elephant</a>
+    <a class="animal-link snow-leopard" href="snow-leopard.html">Snow Leopard</a>
+    <a class="animal-link red-panda" href="red-panda.html">Red Panda</a>
+    <a class="animal-link orangutan" href="orangutan.html">Orangutan</a>
+    <a class="animal-link gibbon" href="gibbon.html">Gibbon</a>
+    <a class="animal-link black-bear" href="asian-black-bear.html">Asian Black Bear</a>
+    <a class="animal-link takin" href="takin.html">Golden Takin</a>
+    <a class="animal-link otter" href="otter.html">Asian Small-clawed Otter</a>
+    <a class="animal-link tapir" href="malayan-tapir.html">Malayan Tapir</a>
+    <a class="animal-link sun-bear" href="sun-bear.html">Sun Bear</a>
+    <a class="animal-link clouded-leopard" href="clouded-leopard.html">Clouded Leopard</a>
+    <a class="animal-link birds" href="asian-forest-birds.html">Forest Birds</a>
   </main>
+
+  <a class="back-link" href="zoo.html">← Zoo Map</a>
 </body>
 </html>
